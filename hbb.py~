@@ -154,11 +154,8 @@ class ReportPage(webapp.RequestHandler):
 
 class POST(webapp.RequestHandler):
     def post(self):
-        key = self.request.get("key")
-        if key and key != '':
-            record = db.get(key)
-        else:
-            record = Record(parent=record_key())
+        
+        record = Record(parent=record_key())
         record.user = self.request.get('user')
         record.first = int(self.request.get('first_mark'))
         record.second = int(self.request.get('second_mark'))
